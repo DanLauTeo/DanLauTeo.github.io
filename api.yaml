@@ -257,6 +257,31 @@ paths:
         404:
           description: "Message doesn't exist"
 
+  "/feed/":
+    get:
+      tags:
+      - "feed"
+      summary: "Get feed posts"
+      responses:
+          200:
+            description: "Succesfully got feed posts"
+            schema:
+              $ref: "#/definitions/Feed"
+          401:
+            description: "Unauthorized"
+
+  "/tasks/recalc-user-matches/":
+    get:
+      tags:
+        - "tasks"
+      summary: "Recalculate matching backend data"
+      description: "This is called by a Cron job"
+      responses:
+        200:
+          description: "Succesfully triggered recalculation"
+        403:
+          description: "The task is called not by a Cron job"
+
 definitions:
   User:
     type: "object"
@@ -327,3 +352,13 @@ definitions:
         type: array
         items:
           type: integer
+
+  Feed:
+    type: object
+    properties:
+      profile_pic:
+        type: string
+      owner_id:
+        type: string
+      image_url:
+        type: string
