@@ -257,6 +257,17 @@ paths:
         404:
           description: "Message doesn't exist"
 
+    "/feed/"
+      get:
+        tags: 
+        - "feed"
+        summary: "Get feed posts"
+        responses: 
+            200:
+              description: "Succesfully got feed posts"
+            401:
+              description: "Unauthorized"
+
 definitions:
   User:
     type: "object"
@@ -290,7 +301,7 @@ definitions:
               type: "string"
             score:
               type: "number"
-              format: "float"
+              format: "float"              
 
   GetMatchesReply:
     type: "object"
@@ -325,3 +336,13 @@ definitions:
         type: array
         items:
           type: integer
+
+  Feed:
+    type: object
+    properties:
+      profile_pic:
+        type: string
+      owner_id:
+        type: string
+      image_url:
+        type: string
