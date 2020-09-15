@@ -257,16 +257,16 @@ paths:
         404:
           description: "Message doesn't exist"
 
-    "/feed/"
-      get:
-        tags: 
-        - "feed"
-        summary: "Get feed posts"
-        responses: 
-            200:
-              description: "Succesfully got feed posts"
-            401:
-              description: "Unauthorized"
+  "/feed/":
+    get:
+      tags: 
+      - "feed"
+      summary: "Get feed posts"
+      responses: 
+          200:
+            description: "Succesfully got feed posts"
+          401:
+            description: "Unauthorized"
 
 definitions:
   User:
