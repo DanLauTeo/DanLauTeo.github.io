@@ -73,6 +73,27 @@ paths:
         403:
           description: "Trying to update another user's picture"
 
+  "/user/{id}/images/":
+    parameters:
+      - name: id
+        in: path
+        description: "ID of the user"
+        required: true
+        type: string
+
+    get:
+      tags:
+        - "user"
+      summary: "Get user images' URLs"
+      responses:
+        200:
+          description: ""
+          schema:
+            type: array
+            items:
+              type: string
+              format: uri
+
   "/images/":
     post:
       tags:
